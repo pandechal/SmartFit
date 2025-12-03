@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    tools:context=".getStarted5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <!-- ORANGE HEADER -->
+    <View
+        android:id="@+id/orangeBox"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/orange_bottom_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="45dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_arrow_left_white" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="13dp"
+        android:text="Workout Type"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+
+    <!-- ⭐ SCROLLVIEW ⭐ -->
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Choose your preferred workout style"
+        android:textColor="#020204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <LinearLayout
+        android:id="@+id/homeWorkoutButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/edittext_border"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orangeBox">
+
+
+        <!-- TOP ROW: ICON + TEXT (2 lines) + RADIO BUTTON -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- ICON LEFT -->
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/icon_orange_home" />
+
+            <!-- TEXT IN MIDDLE (VERTICAL) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/homeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home Workouts"
+                    android:textColor="#5261a1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/homeSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Train anywhere without equipment"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- RADIO BUTTON RIGHT -->
+        </LinearLayout>
+
+        <!-- TAGS BELOW -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="71dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_small_rectangle"
+                android:gravity="center"
+                android:text="Bodyweight"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="71dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_small_rectangle"
+                android:gravity="center"
+                android:text="Flexible"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="71dp"
+                android:layout_height="20dp"
+                android:background="@drawable/rounded_small_rectangle"
+                android:gravity="center"
+                android:text="Convenient"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gymWorkoutButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/edittext_border"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeWorkoutButton">
+
+        <!-- TOP ROW: ICON + TEXT + RADIO BUTTON -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- ICON LEFT -->
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/icon_build_muscle" />
+
+            <!-- TEXT CENTER (STACKED) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/gymTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gym Workout"
+                    android:textColor="#5261a1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/gymSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Professional equipment-based training"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- RADIO BUTTON RIGHT -->
+
+        </LinearLayout>
+
+        <!-- TAGS BELOW -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="71dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_small_rectangle"
+                android:gravity="center"
+                android:text="Equipment"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="71dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_small_rectangle"
+                android:gravity="center"
+                android:text="Structured"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="71dp"
+                android:layout_height="20dp"
+                android:background="@drawable/rounded_small_rectangle"
+                android:gravity="center"
+                android:text="Progressive"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/intermediateBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/light_orange_background"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gymWorkoutButton">
+
+        <!-- ICON -->
+        <ImageView
+            android:id="@+id/cautionIcon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/icon_caution"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- TITLE -->
+        <TextView
+            android:id="@+id/intermediateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="Food Allergies"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/cautionIcon"
+            app:layout_constraintStart_toEndOf="@id/cautionIcon"
+            app:layout_constraintTop_toTopOf="@id/cautionIcon" />
+
+        <!-- INPUT FIELD -->
+        <EditText
+            android:id="@+id/editTextFoodAllergies"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_small_rectangle"
+            android:gravity="center_vertical"
+            android:hint="Food Allergies"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/intermediateText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/intermediateBox2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/light_orange_background"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="585dp">
+
+        <!-- ICON -->
+        <ImageView
+            android:id="@+id/cautionIcon2"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/icon_caution"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- TITLE -->
+        <TextView
+            android:id="@+id/intermediateText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="Health Conditions"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/cautionIcon2"
+            app:layout_constraintStart_toEndOf="@id/cautionIcon2"
+            app:layout_constraintTop_toTopOf="@id/cautionIcon2" />
+
+        <!-- INPUT FIELD -->
+        <EditText
+            android:id="@+id/editTextHealthConditions"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_small_rectangle"
+            android:gravity="center_vertical"
+            android:hint="Health Conditions"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/intermediateText2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="320dp"
+        android:layout_height="51dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="37dp"
+        android:backgroundTint="@color/orange"
+        android:text="Complete Setup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intermediateBox2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

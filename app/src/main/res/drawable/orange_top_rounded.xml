@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Bottom soft shadow (large spread) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#0D000000" /> <!-- 5% black -->
+            <corners
+                android:topLeftRadius="16dp"
+                android:topRightRadius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Mid shadow (slightly darker) -->
+    <item android:top="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#1A000000" /> <!-- 10% black -->
+            <corners
+                android:topLeftRadius="16dp"
+                android:topRightRadius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Strongest thin shadow -->
+    <item android:top="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#33000000" /> <!-- 20% black -->
+            <corners
+                android:topLeftRadius="16dp"
+                android:topRightRadius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Main White Background -->
+    <item android:top="6dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" /> <!-- PURE white -->
+            <corners
+                android:topLeftRadius="16dp"
+                android:topRightRadius="16dp"
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp" />
+        </shape>
+    </item>
+
+</layer-list>

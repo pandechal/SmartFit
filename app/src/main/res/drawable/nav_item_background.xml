@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- When hovered -->
+    <item android:state_hovered="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FED7AA" /> <!-- Light orange -->
+            <corners android:radius="12dp"/>
+        </shape>
+    </item>
+
+    <!-- Default -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+</selector>
