@@ -23,7 +23,7 @@ public class getStarted4 extends AppCompatActivity {
 
     String selectedGoal = "";
 
-    String gender, height, weight, age, activityLevel;
+    String gender, height, weight, birthday, activityLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class getStarted4 extends AppCompatActivity {
         gender = intent.getStringExtra("gender");
         height = intent.getStringExtra("height");
         weight = intent.getStringExtra("weight");
-        age = intent.getStringExtra("age");
+        birthday = intent.getStringExtra("birthday");
         activityLevel = intent.getStringExtra("activity_level");
 
         loseWeightContainer = findViewById(R.id.loseWeightContainer);
@@ -71,7 +71,7 @@ public class getStarted4 extends AppCompatActivity {
             i.putExtra("gender", gender);
             i.putExtra("height", height);
             i.putExtra("weight", weight);
-            i.putExtra("age", age);
+            i.putExtra("birthday", birthday);
             i.putExtra("activity_level", activityLevel);
             i.putExtra("goal", selectedGoal);
             startActivity(i);

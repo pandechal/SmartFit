@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Smartfit"
         tools:targetApi="31">
         <activity
-            android:name=".home"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".forgotPassword"

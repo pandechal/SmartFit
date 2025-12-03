@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/shadow_box"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Category Label -->
+    <TextView
+        android:id="@+id/workoutCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_small_rectangle"
+        android:gravity="center"
+        android:text="High Intensity"
+        android:textSize="12sp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="4dp"
+        tools:backgroundTint="#FED7AA"
+        tools:textColor="#5261a1" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/workoutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Full Body Hiit"
+        android:textColor="#5261a1"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/workoutDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Burn calories fast with this intense workout"
+        android:textSize="14sp" />
+
+    <!-- Metrics and Button Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Metrics -->
+        <TextView
+            android:id="@+id/workoutMetrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_small_rectangle"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:text="450 cal • 12 exercises"
+            android:textSize="12sp"
+            tools:backgroundTint="#f3f4f6"
+            tools:textColor="#6b7280" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Start Button -->
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="100dp"
+            android:backgroundTint="@color/orange"
+            android:text="Start"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

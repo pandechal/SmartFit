@@ -88,14 +88,51 @@ public class login extends AppCompatActivity {
         auth.signInWithEmailAndPassword(userEmail, userPass)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(login.this, home.class));
-                        finish();
+
+                        FirebaseUser user = auth.getCurrentUser();
+                        if (user == null) {
+                            Toast.makeText(this, "Login error: user is null", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        String uid = user.getUid();
+
+                        // 🔥 Check Firestore for firstTimeLogin (same logic as Google Sign-In)
+                        db.collection("users").document(uid).get()
+                                .addOnSuccessListener(documentSnapshot -> {
+                                    if (documentSnapshot.exists()) {
+
+                                        Boolean firstTime = documentSnapshot.getBoolean("firstTimeLogin");
+                                        if (firstTime == null) firstTime = false;
+
+                                        Intent intent;
+
+                                        if (firstTime) {
+                                            // First time login → go to onboarding
+                                            intent = new Intent(login.this, getStarted1.class);
+                                        } else {
+                                            // Returning user → go to home
+                                            intent = new Intent(login.this, MainActivity.class);
+                                        }
+
+                                        Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                                        startActivity(intent);
+                                        finish();
+
+                                    }
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(this, "Error fetching user data: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                });
+
                     } else {
-                        Toast.makeText(this, "Login Failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(this,
+                                "Login Failed: " + task.getException().getMessage(),
+                                Toast.LENGTH_LONG).show();
                     }
                 });
     }
+
 
     // Google Sign-In
     private void signInWithGoogle() {
@@ -144,7 +181,7 @@ public class login extends AppCompatActivity {
                                             intent = new Intent(login.this, getStarted1.class);
                                         } else {
                                             // Returning user → go to home
-                                            intent = new Intent(login.this, home.class);
+                                            intent = new Intent(login.this, MainActivity.class);
                                         }
 
                                         Toast.makeText(login.this, "Google Sign-In Successful!", Toast.LENGTH_SHORT).show();

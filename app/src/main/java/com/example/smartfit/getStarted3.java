@@ -37,7 +37,7 @@ public class getStarted3 extends AppCompatActivity {
         String gender = intent.getStringExtra("gender");
         String height = intent.getStringExtra("height");
         String weight = intent.getStringExtra("weight");
-        String age = intent.getStringExtra("age");
+        String birthday = intent.getStringExtra("birthday");
 
         beginnerContainer = findViewById(R.id.beginnerContainer);
         lightContainer = findViewById(R.id.lightContainer);
@@ -79,7 +79,7 @@ public class getStarted3 extends AppCompatActivity {
             i.putExtra("gender", gender);
             i.putExtra("height", height);
             i.putExtra("weight", weight);
-            i.putExtra("age", age);
+            i.putExtra("birthday", birthday);
             i.putExtra("activity_level", selectedActivity); // new value
 
             startActivity(i);

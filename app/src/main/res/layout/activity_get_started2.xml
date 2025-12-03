@@ -53,7 +53,7 @@
         android:backgroundTint="@color/orange"
         android:text="Continue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText9" />
+        app:layout_constraintTop_toBottomOf="@+id/birthdayText" />
 
     <EditText
         android:id="@+id/editTextText2"
@@ -82,16 +82,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
 
-    <EditText
-        android:id="@+id/editTextText9"
+    <TextView
+        android:id="@+id/birthdayText"
         android:layout_width="320dp"
         android:layout_height="55dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/edittext_border"
-        android:ems="10"
-        android:hint="Age"
-        android:inputType="number"
+        android:gravity="center_vertical|start"
+        android:paddingStart="12dp"
+        android:hint="Select your birthday"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
 

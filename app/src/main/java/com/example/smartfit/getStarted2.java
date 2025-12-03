@@ -20,6 +20,9 @@ public class getStarted2 extends AppCompatActivity {
     private TextView maleText, femaleText;
     private Button continueBtn;
     private ImageView maleIcon, femaleIcon, BTback;
+    private TextView birthdayText;
+    private String birthday = ""; // store the selected date
+
 
     private String selectedGender = "";
 
@@ -36,9 +39,12 @@ public class getStarted2 extends AppCompatActivity {
         femaleText = findViewById(R.id.femaleText);
         heightEdit = findViewById(R.id.editTextText2);
         weightEdit = findViewById(R.id.editTextText7);
-        ageEdit = findViewById(R.id.editTextText9);
         continueBtn = findViewById(R.id.button7);
         BTback = findViewById(R.id.imageView12);
+        birthdayText = findViewById(R.id.birthdayText);
+
+        birthdayText.setOnClickListener(v -> showDatePickerDialog());
+
 
         BTback.setOnClickListener(v -> finish());
 
@@ -47,6 +53,25 @@ public class getStarted2 extends AppCompatActivity {
 
         continueBtn.setOnClickListener(v -> validateAndSave());
     }
+    private void showDatePickerDialog() {
+        final java.util.Calendar calendar = java.util.Calendar.getInstance();
+        int year = calendar.get(java.util.Calendar.YEAR);
+        int month = calendar.get(java.util.Calendar.MONTH);
+        int day = calendar.get(java.util.Calendar.DAY_OF_MONTH);
+
+        android.app.DatePickerDialog datePickerDialog = new android.app.DatePickerDialog(
+                getStarted2.this,
+                (view, selectedYear, selectedMonth, selectedDay) -> {
+                    // Month is 0-based
+                    selectedMonth += 1;
+                    birthday = selectedYear + "-" + (selectedMonth < 10 ? "0" + selectedMonth : selectedMonth)
+                            + "-" + (selectedDay < 10 ? "0" + selectedDay : selectedDay);
+                    birthdayText.setText(birthday);
+                },
+                year, month, day);
+        datePickerDialog.show();
+    }
+
 
     private void selectGender(String gender) {
         selectedGender = gender;
@@ -74,23 +99,28 @@ public class getStarted2 extends AppCompatActivity {
     private void validateAndSave() {
         String height = heightEdit.getText().toString().trim();
         String weight = weightEdit.getText().toString().trim();
-        String age = ageEdit.getText().toString().trim();
+
+        if (birthday.isEmpty()) {
+            Toast.makeText(this, "Please select your birthday", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         if (selectedGender.isEmpty()) {
             Toast.makeText(this, "Please select your gender", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (height.isEmpty() || weight.isEmpty() || age.isEmpty()) {
+        if (height.isEmpty() || weight.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
+
 
         Intent intent = new Intent(getStarted2.this, getStarted3.class);
         intent.putExtra("gender", selectedGender);
         intent.putExtra("height", height);
         intent.putExtra("weight", weight);
-        intent.putExtra("age", age);
+        intent.putExtra("birthday", birthday);
 
         startActivity(intent);
     }

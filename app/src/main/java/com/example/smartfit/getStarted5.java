@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.smartfit.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,7 +29,7 @@ public class getStarted5 extends AppCompatActivity {
     LinearLayout homeWorkoutLayout, gymWorkoutLayout;
     TextView homeTitle, gymTitle;
 
-    String gender, height, weight, age, activityLevel, goals;
+    String gender, height, weight, birthday, activityLevel, goals;
     String selectedWorkout = "";
     boolean homeSelected = false, gymSelected = false;
 
@@ -66,7 +65,7 @@ public class getStarted5 extends AppCompatActivity {
         gender = getIntent().getStringExtra("gender");
         height = getIntent().getStringExtra("height");
         weight = getIntent().getStringExtra("weight");
-        age = getIntent().getStringExtra("age");
+        birthday = getIntent().getStringExtra("birthday");
         activityLevel = getIntent().getStringExtra("activity_level");
         goals = getIntent().getStringExtra("goal");
 
@@ -102,24 +101,33 @@ public class getStarted5 extends AppCompatActivity {
 
         String uid = currentUser.getUid();
 
+        String currentDate;
+        try {
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("MMM dd, yyyy");
+            currentDate = sdf.format(new java.util.Date());
+        } catch (Exception e) {
+            currentDate = "Unknown";
+        }
+
         Map<String, Object> userData = new HashMap<>();
         userData.put("gender", gender);
-        userData.put("height", height);
-        userData.put("weight", weight);
-        userData.put("age", age);
+        userData.put("height", Integer.parseInt(height));
+        userData.put("weight", Integer.parseInt(weight));
+        userData.put("birthday", birthday);
         userData.put("activity_level", activityLevel);
         userData.put("goals", goals);
         userData.put("workout_type", selectedWorkout);
         userData.put("food_allergies", foodAllergies);
         userData.put("health_conditions", healthConditions);
         userData.put("firstTimeLogin", false);
+        userData.put("joinedDate", currentDate); // <-- store current date here
 
         db.collection("users").document(uid)
                 .set(userData, SetOptions.merge())
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "Registered successfully!", Toast.LENGTH_SHORT).show();
                     // Go to home activity
-                    startActivity(new Intent(getStarted5.this, home.class));
+                    startActivity(new Intent(getStarted5.this, MainActivity.class));
                     finish(); // Optional: finish this activity so user cannot go back
                 })
                 .addOnFailureListener(e ->

@@ -58,6 +58,7 @@ public class createAccount extends AppCompatActivity {
     private void registerUser() {
         String fName = firstName.getText().toString().trim();
         String lName = lastName.getText().toString().trim();
+        String name = fName + " " +lName;
         String userEmail = email.getText().toString().trim();
         String userPhone = phone.getText().toString().trim();
         String userPass = password.getText().toString().trim();
@@ -78,7 +79,7 @@ public class createAccount extends AppCompatActivity {
                     if(task.isSuccessful()){
                         FirebaseUser user = auth.getCurrentUser();
                         if(user != null){
-                            saveUserDetailsToFirestore(user, fName, lName, userPhone, userEmail);
+                            saveUserDetailsToFirestore(user, name, userPhone, userEmail);
                         }
                         Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(this, login.class));
@@ -89,13 +90,12 @@ public class createAccount extends AppCompatActivity {
                 });
     }
 
-    private void saveUserDetailsToFirestore(FirebaseUser user, String firstName, String lastName, String phone, String email){
+    private void saveUserDetailsToFirestore(FirebaseUser user, String name, String phone, String email){
         Map<String, Object> userInfo = new HashMap<>();
-        userInfo.put("firstName", firstName);
-        userInfo.put("lastName", lastName);
+        userInfo.put("name", name);
         userInfo.put("email", email);
         userInfo.put("phone", phone);
-        userInfo.put("createdAt", FieldValue.serverTimestamp());
+        userInfo.put("joinedDate", FieldValue.serverTimestamp());
         userInfo.put("googleSignIn", false);
         userInfo.put("firstTimeLogin", true);
 
