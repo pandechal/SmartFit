@@ -11,7 +11,7 @@
     <View
         android:id="@+id/orangeBox"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="143dp"
         android:background="@drawable/orange_bottom_rounded"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,8 +20,8 @@
         android:id="@+id/imageView12"
         android:layout_width="45dp"
         android:layout_height="33dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_arrow_left_white" />
@@ -30,9 +30,10 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="5dp"
         android:text="Your Goal"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -41,11 +42,12 @@
 
     <TextView
         android:id="@+id/textView17"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="44dp"
+        android:textColor="#ffffff"
         android:text="What do you want to achieve?"
-        android:textColor="#020204"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -99,7 +101,7 @@
             android:id="@+id/check1"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:tint="@android:color/white"
+            android:tint="@color/white"
             android:src="@drawable/icon_check" />
     </LinearLayout>
 

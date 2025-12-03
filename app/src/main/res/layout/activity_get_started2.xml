@@ -14,7 +14,7 @@
     <View
         android:id="@+id/orangeBox"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="143dp"
         android:background="@drawable/orange_bottom_rounded"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:text="Let’s Get Started"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -38,10 +38,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="96dp"
+        android:textColor="#ffffff"
         android:text="Tell us about yourself"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 
     <Button
@@ -182,7 +182,7 @@
         android:layout_width="45dp"
         android:layout_height="33dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_arrow_left_white" />
